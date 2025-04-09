@@ -28,6 +28,16 @@ const OTP = () => {
     ref.current[0]?.focus();
   }, []);
 
+  const handlekeyDown = (e, index) => {
+    const key = e.key;
+
+    if (!e.target.value && key === "Backspace") {
+      if (index > 0) {
+        ref.current[index - 1].focus();
+      }
+    }
+  };
+
   return (
     <div className="container ">
       {otpFields.map((value, index) => {
@@ -38,6 +48,7 @@ const OTP = () => {
             key={index}
             value={otpFields[index]}
             onChange={(e) => handleChange(e, index)}
+            onKeyDown={(e) => handlekeyDown(e, index)}
           />
         );
       })}
