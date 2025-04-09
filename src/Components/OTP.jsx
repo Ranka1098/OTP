@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./otp.css";
 
 const Otp_Digit_Count = 6;
@@ -19,6 +19,10 @@ const OTP = () => {
     setOtpFields(copyOtp);
     if (index < otpFields.length - 1) ref.current[index + 1].focus();
   };
+
+  useEffect(() => {
+    ref.current[0]?.focus();
+  }, []);
 
   return (
     <div className="container ">
