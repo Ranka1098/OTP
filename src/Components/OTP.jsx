@@ -44,6 +44,14 @@ const OTP = () => {
     }
   };
 
+  const handleClick = () => {
+    if (otpFields.includes("")) {
+      console.log("opt fields are empty");
+    } else {
+      console.log("your otp is :", otpFields.join(""));
+    }
+  };
+
   return (
     <div className="container ">
       {otpFields.map((value, index) => {
@@ -58,6 +66,9 @@ const OTP = () => {
           />
         );
       })}
+      <button type="button" onClick={handleClick}>
+        getOTP
+      </button>
     </div>
   );
 };
