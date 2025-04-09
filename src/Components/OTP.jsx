@@ -36,6 +36,12 @@ const OTP = () => {
         ref.current[index - 1].focus();
       }
     }
+    if (key === "ArrowLeft") {
+      if (index > 0) ref.current[index - 1].focus();
+    }
+    if (key === "ArrowRight") {
+      if (index < otpFields.length - 1) ref.current[index + 1].focus();
+    }
   };
 
   return (
