@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import "./otp.css";
 
 const Otp_Digit_Count = 6;
@@ -7,6 +7,9 @@ const OTP = () => {
   const [otpFields, setOtpFields] = useState(
     new Array(Otp_Digit_Count).fill("")
   );
+
+  const ref = useRef([]);
+  console.log(ref);
 
   const handleChange = (e, index) => {
     const value = e.target.value;
@@ -23,6 +26,7 @@ const OTP = () => {
         return (
           <input
             type="text"
+            ref={(currentInput) => (ref.current[index] = currentInput)}
             key={index}
             value={otpFields[index]}
             onChange={(e) => handleChange(e, index)}
