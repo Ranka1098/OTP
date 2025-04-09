@@ -9,7 +9,6 @@ const OTP = () => {
   );
 
   const ref = useRef([]);
-  console.log(ref);
 
   const handleChange = (e, index) => {
     const value = e.target.value;
@@ -18,6 +17,7 @@ const OTP = () => {
     const copyOtp = [...otpFields];
     copyOtp[index] = value.slice(-1);
     setOtpFields(copyOtp);
+    if (index < otpFields.length - 1) ref.current[index + 1].focus();
   };
 
   return (
